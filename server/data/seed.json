@@ -1,0 +1,67 @@
+[
+  {
+    "ref": "VB-1212-0418",
+    "roomId": "deluxe-sea-view",
+    "guest": "Sarah Martin",
+    "email": "sarah@example.com",
+    "phone": "",
+    "guests": 2,
+    "checkIn": "2026-12-12",
+    "checkOut": "2026-12-15",
+    "total": 345,
+    "status": "paid",
+    "createdAt": "2026-11-02T09:12:00.000Z"
+  },
+  {
+    "ref": "VB-1214-2290",
+    "roomId": "garden-suite",
+    "guest": "David Kim",
+    "email": "david@example.com",
+    "phone": "",
+    "guests": 3,
+    "checkIn": "2026-12-14",
+    "checkOut": "2026-12-18",
+    "total": 520,
+    "status": "paid",
+    "createdAt": "2026-11-03T15:40:00.000Z"
+  },
+  {
+    "ref": "VB-1216-7731",
+    "roomId": "standard-double",
+    "guest": "Amina Rakoto",
+    "email": "amina@example.com",
+    "phone": "",
+    "guests": 1,
+    "checkIn": "2026-12-16",
+    "checkOut": "2026-12-17",
+    "total": 85,
+    "status": "pending",
+    "createdAt": "2026-11-04T08:05:00.000Z"
+  },
+  {
+    "ref": "VB-1220-1184",
+    "roomId": "ocean-family-room",
+    "guest": "Lucas Bernard",
+    "email": "lucas@example.com",
+    "phone": "",
+    "guests": 4,
+    "checkIn": "2026-12-20",
+    "checkOut": "2026-12-27",
+    "total": 1120,
+    "status": "paid",
+    "createdAt": "2026-11-05T19:22:00.000Z"
+  },
+  {
+    "ref": "VB-1222-5067",
+    "roomId": "deluxe-sea-view",
+    "guest": "Emma Wilson",
+    "email": "emma@example.com",
+    "phone": "",
+    "guests": 2,
+    "checkIn": "2026-12-22",
+    "checkOut": "2026-12-26",
+    "total": 460,
+    "status": "pending",
+    "createdAt": "2026-11-06T11:48:00.000Z"
+  }
+]
