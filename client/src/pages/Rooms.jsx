@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import RoomCard from '../components/RoomCard'
-import { rooms } from '../data/rooms'
+import { getRooms } from '../data/rooms'
 import './Rooms.css'
 
 export default function Rooms() {
@@ -10,7 +10,7 @@ export default function Rooms() {
   const [sort, setSort] = useState('recommended')
 
   const list = useMemo(() => {
-    const result = rooms.filter((room) => room.capacity >= guests)
+    const result = getRooms().filter((room) => room.capacity >= guests)
     if (sort === 'price-asc') return [...result].sort((a, b) => a.price - b.price)
     if (sort === 'price-desc') return [...result].sort((a, b) => b.price - a.price)
     return result

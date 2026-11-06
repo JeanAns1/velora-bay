@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import BookingBar from '../components/BookingBar'
 import Picture from '../components/Picture'
 import RoomCard from '../components/RoomCard'
-import { rooms } from '../data/rooms'
+import { getRooms } from '../data/rooms'
 import './Home.css'
 
 const highlights = [
@@ -64,7 +64,7 @@ export default function Home() {
             </Link>
           </div>
           <div className="rooms-grid">
-            {rooms.slice(0, 3).map((room) => (
+            {getRooms().slice(0, 3).map((room) => (
               <RoomCard key={room.id} room={room} />
             ))}
           </div>

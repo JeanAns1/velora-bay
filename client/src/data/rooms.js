@@ -1,4 +1,4 @@
-export const rooms = [
+const baseRooms = [
   {
     id: 'deluxe-sea-view',
     name: 'Deluxe Sea View',
@@ -53,6 +53,26 @@ export const rooms = [
   },
 ]
 
+const PRICES_KEY = 'velora_room_prices'
+
+function savedPrices() {
+  try {
+    return JSON.parse(localStorage.getItem(PRICES_KEY)) || {}
+  } catch {
+    return {}
+  }
+}
+
+export function getRooms() {
+  const prices = savedPrices()
+  return baseRooms.map((room) => ({ ...room, price: prices[room.id] ?? room.price }))
+}
+
 export function getRoom(id) {
-  return rooms.find((room) => room.id === id)
+  return getRooms().find((room) => room.id === id)
+}
+
+export function updateRoomPrice(id, price) {
+  const prices = { ...savedPrices(), [id]: price }
+  localStorage.setItem(PRICES_KEY, JSON.stringify(prices))
 }
