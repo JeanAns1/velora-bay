@@ -1,0 +1,94 @@
+.dining {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 4rem;
+}
+
+.menu-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.menu-tabs button {
+  border: 1px solid var(--sand);
+  background: var(--white);
+  padding: 0.55rem 1.2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.menu-tabs button.is-active {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: var(--white);
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px dashed var(--sand);
+}
+
+.menu-list h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.2rem;
+}
+
+.menu-list p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.menu-list span {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--brass);
+}
+
+.dining__picture {
+  height: 260px;
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+}
+
+.dining__hours {
+  padding: 1.5rem;
+}
+
+.dining__hours div {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--sand);
+}
+
+.table-booking {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.table-booking__form,
+.table-booking__done {
+  padding: 2rem;
+}
+
+@media (max-width: 860px) {
+  .dining,
+  .table-booking {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
