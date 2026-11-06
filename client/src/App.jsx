@@ -9,6 +9,12 @@ import Dining from './pages/Dining'
 import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
+import AdminLayout from './admin/AdminLayout'
+import Bookings from './admin/Bookings'
+import Login from './admin/Login'
+import Overview from './admin/Overview'
+import RequireAuth from './admin/RequireAuth'
+import RoomsAdmin from './admin/RoomsAdmin'
 
 export default function App() {
   return (
@@ -24,6 +30,20 @@ export default function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
+        </Route>
+
+        <Route path="/admin/login" element={<Login />} />
+        <Route
+          path="/admin"
+          element={
+            <RequireAuth>
+              <AdminLayout />
+            </RequireAuth>
+          }
+        >
+          <Route index element={<Overview />} />
+          <Route path="bookings" element={<Bookings />} />
+          <Route path="rooms" element={<RoomsAdmin />} />
         </Route>
       </Routes>
     </BrowserRouter>
