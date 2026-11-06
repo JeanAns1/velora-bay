@@ -46,10 +46,20 @@ export default function Booking() {
 
   const update = (field) => (e) => setForm({ ...form, [field]: e.target.value })
 
+  const changeCheckIn = (e) => {
+    const value = e.target.value
+    const checkOut = form.checkOut <= value ? addDays(value, 1) : form.checkOut
+    setForm({ ...form, checkIn: value, checkOut })
+  }
+
   const next = (e) => {
     e.preventDefault()
     setError('')
 
+    if (step === 0 && nights < 1) {
+      setError('Check-out must be after check-in.')
+      return
+    }
     if (step === 0 && !available) {
       setError('This room is already booked for these dates. Please choose other dates.')
       return
@@ -112,11 +122,11 @@ export default function Booking() {
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="checkIn">Check-in</label>
-                  <input id="checkIn" type="date" className="form-control" value={form.checkIn} min={today()} onChange={update('checkIn')} />
+                  <input id="checkIn" type="date" className="form-control" value={form.checkIn} min={today()} onChange={changeCheckIn} />
                 </div>
                 <div className="form-group">
                   <label htmlFor="checkOut">Check-out</label>
-                  <input id="checkOut" type="date" className="form-control" value={form.checkOut} min={today()} onChange={update('checkOut')} />
+                  <input id="checkOut" type="date" className="form-control" value={form.checkOut} min={addDays(form.checkIn, 1)} onChange={update('checkOut')} />
                 </div>
               </div>
               <div className="form-group">
