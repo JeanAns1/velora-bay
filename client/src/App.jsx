@@ -3,6 +3,8 @@ import Layout from './components/Layout'
 import Home from './pages/Home'
 import Rooms from './pages/Rooms'
 import RoomDetail from './pages/RoomDetail'
+import Booking from './pages/Booking'
+import Confirmation from './pages/Confirmation'
 import Dining from './pages/Dining'
 import Gallery from './pages/Gallery'
 import Contact from './pages/Contact'
@@ -16,6 +18,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/rooms" element={<Rooms />} />
           <Route path="/rooms/:id" element={<RoomDetail />} />
+          <Route path="/booking/:id" element={<Booking />} />
+          <Route path="/booking/confirmation/:ref" element={<Confirmation />} />
           <Route path="/dining" element={<Dining />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
