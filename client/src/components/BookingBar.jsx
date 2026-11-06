@@ -9,6 +9,11 @@ export default function BookingBar() {
   const [checkOut, setCheckOut] = useState(addDays(today(), 2))
   const [guests, setGuests] = useState(2)
 
+  const changeCheckIn = (value) => {
+    setCheckIn(value)
+    if (checkOut <= value) setCheckOut(addDays(value, 1))
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     const params = new URLSearchParams({ checkIn, checkOut, guests })
@@ -24,7 +29,7 @@ export default function BookingBar() {
           type="date"
           value={checkIn}
           min={today()}
-          onChange={(e) => setCheckIn(e.target.value)}
+          onChange={(e) => changeCheckIn(e.target.value)}
         />
       </div>
 
@@ -34,7 +39,7 @@ export default function BookingBar() {
           id="checkOut"
           type="date"
           value={checkOut}
-          min={today()}
+          min={addDays(checkIn, 1)}
           onChange={(e) => setCheckOut(e.target.value)}
         />
       </div>
