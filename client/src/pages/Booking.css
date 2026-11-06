@@ -1,0 +1,149 @@
+.booking {
+  padding-top: 8rem;
+}
+
+.booking__grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.booking h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 2rem;
+  display: flex;
+  gap: 2rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.steps li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.steps span {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--sand);
+  font-size: 0.85rem;
+  background: var(--white);
+}
+
+.steps .is-active {
+  color: var(--forest);
+  font-weight: 600;
+}
+
+.steps .is-active span {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: var(--white);
+}
+
+.steps .is-done span {
+  background: var(--brass);
+  border-color: var(--brass);
+  color: var(--white);
+}
+
+.booking__form {
+  padding: 2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.booking__actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.booking__demo {
+  background: #f6ead7;
+  color: var(--brass-dark);
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  font-size: 0.88rem;
+}
+
+.summary {
+  position: sticky;
+  top: 100px;
+  overflow: hidden;
+}
+
+.summary__picture {
+  height: 170px;
+}
+
+.summary__body {
+  padding: 1.5rem;
+}
+
+.summary dl {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  font-size: 0.92rem;
+}
+
+.summary dt {
+  color: var(--muted);
+}
+
+.summary dd {
+  margin: 0;
+  font-weight: 500;
+  text-align: right;
+}
+
+.summary__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--sand);
+}
+
+.summary__total strong {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--forest);
+}
+
+@media (max-width: 860px) {
+  .booking__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary {
+    position: static;
+    order: -1;
+  }
+
+  .steps {
+    gap: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

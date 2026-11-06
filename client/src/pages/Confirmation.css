@@ -1,0 +1,42 @@
+.confirmation {
+  padding-top: 9rem;
+  min-height: 80vh;
+}
+
+.confirmation__card {
+  max-width: 560px;
+  padding: 3rem 2.5rem;
+  text-align: center;
+}
+
+.confirmation__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.2rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #e3f0e6;
+  color: var(--success);
+  font-size: 1.8rem;
+}
+
+.confirmation dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.6rem 1.5rem;
+  text-align: left;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--ivory);
+  border-radius: 8px;
+}
+
+.confirmation dt {
+  color: var(--muted);
+}
+
+.confirmation dd {
+  margin: 0;
+  font-weight: 500;
+}
