@@ -1,0 +1,265 @@
+:root {
+  --forest: #1e3a32;
+  --forest-light: #2b5246;
+  --ivory: #f5f0e6;
+  --sand: #e9e0cf;
+  --brass: #b9874a;
+  --brass-dark: #9a6e3a;
+  --ink: #1b1f1d;
+  --muted: #6b716d;
+  --white: #fff;
+  --danger: #b3402f;
+  --success: #2f7a4b;
+
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --radius: 10px;
+  --shadow: 0 12px 30px rgba(30, 58, 50, 0.12);
+  --container: 1180px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--ivory);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--forest);
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.container {
+  width: min(100% - 2.5rem, var(--container));
+  margin-inline: auto;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.section-title em {
+  color: var(--brass);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.4rem;
+  border: 0;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-primary {
+  background: var(--brass);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--brass-dark);
+}
+
+.btn-dark {
+  background: var(--forest);
+  color: var(--white);
+}
+
+.btn-dark:hover {
+  background: var(--forest-light);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--forest);
+  color: var(--forest);
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--sand);
+  border-radius: var(--radius);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.form-control {
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--sand);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--ink);
+}
+
+.form-control:focus {
+  outline: 2px solid var(--brass);
+  outline-offset: -1px;
+}
+
+.form-error {
+  color: var(--danger);
+  font-size: 0.85rem;
+}
+
+/* placeholder pictures, replace with real photos later */
+.picture {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #e7b98a 0%, #d99a72 32%, #9c7b78 52%, #3f6670 53%, #24434a 100%);
+}
+
+.picture::before {
+  content: '';
+  position: absolute;
+  width: 14%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  left: 60%;
+  top: 30%;
+  background: #f6d9ae;
+}
+
+.picture::after {
+  content: '';
+  position: absolute;
+  inset: auto -5% 0;
+  height: 40%;
+  background:
+    radial-gradient(120% 90% at 15% 100%, #1c3a33 60%, transparent 61%),
+    radial-gradient(90% 70% at 95% 100%, #173029 60%, transparent 61%);
+}
+
+.picture--room {
+  background: linear-gradient(160deg, #c9b79c, #a88f70 60%, #7d6750);
+}
+
+.picture--room::before {
+  left: 12%;
+  top: 18%;
+  width: 30%;
+  border-radius: 6px;
+  background: #efe6d6;
+  opacity: 0.55;
+}
+
+.picture--room::after {
+  height: 28%;
+  background: linear-gradient(0deg, #5e4b3a, #7a634d);
+}
+
+.picture--garden {
+  background: linear-gradient(170deg, #9db7a8, #5f857a 55%, #355a50);
+}
+
+.picture--garden::before {
+  top: 14%;
+  left: 22%;
+  background: #e8efe6;
+  opacity: 0.6;
+}
+
+.picture--food {
+  background: radial-gradient(circle at 50% 55%, #f1e7d6 0 28%, #c79a63 29% 31%, #3b2d22 32%);
+}
+
+.picture--food::before {
+  left: 42%;
+  top: 44%;
+  width: 16%;
+  background: #8c4a2f;
+}
+
+.picture--food::after {
+  display: none;
+}
+
+.page-header {
+  background: var(--forest);
+  color: var(--ivory);
+  padding: 7.5rem 0 3.5rem;
+}
+
+.page-header h1 {
+  color: var(--ivory);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+
+.page-header p {
+  color: #b9c8c1;
+  max-width: 560px;
+}
