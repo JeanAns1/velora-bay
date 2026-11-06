@@ -1,0 +1,52 @@
+.booking-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;
+  gap: 1rem;
+  align-items: end;
+  background: var(--white);
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.booking-bar__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-right: 1rem;
+  border-right: 1px solid var(--sand);
+}
+
+.booking-bar__field label {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.booking-bar__field input,
+.booking-bar__field select {
+  border: 0;
+  padding: 0.2rem 0;
+  font-weight: 600;
+  background: transparent;
+  color: var(--ink);
+}
+
+.booking-bar .btn {
+  height: 100%;
+}
+
+@media (max-width: 760px) {
+  .booking-bar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .booking-bar__field {
+    border-right: 0;
+    border-bottom: 1px solid var(--sand);
+    padding: 0 0 0.6rem;
+  }
+
+  .booking-bar .btn {
+    grid-column: 1 / -1;
+  }
+}

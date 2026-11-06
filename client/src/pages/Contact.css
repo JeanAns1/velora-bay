@@ -1,0 +1,51 @@
+.contact {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 4rem;
+}
+
+.contact__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact__info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.contact__info p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.contact__map {
+  height: 240px;
+  border-radius: var(--radius);
+  background:
+    linear-gradient(90deg, transparent 49%, #d8cfbd 50%, transparent 51%) 0 0 / 60px 60px,
+    linear-gradient(0deg, transparent 49%, #d8cfbd 50%, transparent 51%) 0 0 / 60px 60px,
+    var(--sand);
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+}
+
+.contact__form {
+  padding: 2rem;
+}
+
+.contact__success {
+  background: #e3f0e6;
+  color: var(--success);
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+}
+
+@media (max-width: 860px) {
+  .contact {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
