@@ -22,6 +22,10 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [pathname])
+
   const solid = scrolled || !isHome || menuOpen
 
   return (
@@ -44,7 +48,8 @@ export default function Header() {
 
         <button
           className="header__burger"
-          aria-label="Open menu"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <span />
