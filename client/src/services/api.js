@@ -1,4 +1,4 @@
-import { sampleBookings } from '../data/bookings'
+import { createSampleBookings } from '../data/bookings'
 import { getRoom } from '../data/rooms'
 import { countNights } from '../utils/dates'
 
@@ -21,8 +21,9 @@ async function request(path, options = {}) {
 function load() {
   const saved = localStorage.getItem(STORAGE_KEY)
   if (saved) return JSON.parse(saved)
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(sampleBookings))
-  return sampleBookings
+  const samples = createSampleBookings()
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(samples))
+  return samples
 }
 
 function save(bookings) {
