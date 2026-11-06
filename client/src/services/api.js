@@ -4,6 +4,20 @@ import { countNights } from '../utils/dates'
 
 const STORAGE_KEY = 'velora_bookings'
 
+// When VITE_API_URL is set the app talks to the Node.js API,
+// otherwise bookings are kept in localStorage (static demo).
+const API_URL = import.meta.env.VITE_API_URL
+
+async function request(path, options = {}) {
+  const res = await fetch(`${API_URL}${path}`, {
+    headers: { 'Content-Type': 'application/json' },
+    ...options,
+  })
+  const data = await res.json().catch(() => null)
+  if (!res.ok) throw new Error(data?.message || 'Request failed')
+  return data
+}
+
 function load() {
   const saved = localStorage.getItem(STORAGE_KEY)
   if (saved) return JSON.parse(saved)
@@ -28,22 +42,30 @@ function makeRef(checkIn) {
 const wait = (ms = 300) => new Promise((resolve) => setTimeout(resolve, ms))
 
 export async function getBookings() {
+  if (API_URL) return request('/bookings')
   await wait()
   return load()
 }
 
 export async function getBooking(ref) {
+  if (API_URL) return request(`/bookings/${ref}`).catch(() => null)
   await wait()
   return load().find((b) => b.ref === ref) || null
 }
 
 export async function isAvailable(roomId, checkIn, checkOut) {
+  if (API_URL) {
+    const params = new URLSearchParams({ roomId, checkIn, checkOut })
+    const { available } = await request(`/bookings/availability?${params}`)
+    return available
+  }
   return !load().some(
     (b) => b.roomId === roomId && b.status !== 'cancelled' && overlaps(b, checkIn, checkOut),
   )
 }
 
 export async function createBooking(data) {
+  if (API_URL) return request('/bookings', { method: 'POST', body: JSON.stringify(data) })
   await wait(700)
   const room = getRoom(data.roomId)
   if (!room) throw new Error('Room not found')
@@ -64,6 +86,7 @@ export async function createBooking(data) {
 }
 
 export async function updateBookingStatus(ref, status) {
+  if (API_URL) return request(`/bookings/${ref}`, { method: 'PATCH', body: JSON.stringify({ status }) })
   await wait()
   const bookings = load().map((b) => (b.ref === ref ? { ...b, status } : b))
   save(bookings)
